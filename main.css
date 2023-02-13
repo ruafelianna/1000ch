@@ -1,0 +1,34 @@
+html, body {
+    font-size: 16px;
+}
+
+.valid {
+    background: lightgreen;
+}
+
+.invalid {
+    background: pink;
+}
+
+.input, button {
+    padding: .5em .5em;
+}
+
+.input {
+    display: inline-block;
+    min-width: 15ch;
+}
+
+li {
+    display: grid;
+    grid-auto-flow: row;
+}
+
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    color: gray;
+}
+
+[contenteditable=true] br{
+    display:none;
+}
