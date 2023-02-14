@@ -3,6 +3,7 @@ let vars = {};
 function ready() {
     vars.inputList = document.querySelectorAll(".input");
     vars.btnClearAll = document.querySelector(".btn-clear-all");
+    vars.btnShowAll = document.querySelector(".btn-show-all");
     vars.btnClearList = document.querySelectorAll(".btn-clear");
     vars.btnShowList = document.querySelectorAll(".btn-show");
 
@@ -13,6 +14,8 @@ function ready() {
     }));
 
     vars.btnClearAll.addEventListener("click", clear_all);
+
+    vars.btnShowAll.addEventListener("click", show_all);
 
     vars.btnClearList.forEach(elem => elem.addEventListener("click", function () {
         clear(this.parentElement.querySelector(".input"));
@@ -25,6 +28,10 @@ function ready() {
 
 function clear_all() {
     vars.inputList.forEach(elem => clear(elem));
+}
+
+function show_all() {
+    vars.inputList.forEach(elem => show(elem));
 }
 
 function check_all() {
