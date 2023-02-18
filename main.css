@@ -14,28 +14,62 @@ html, body {
     padding: .5em;
 }
 
+button {
+    width: fit-content;
+}
+
 .input {
     display: inline-block;
-    width: 15ch;
+    width: 100%;
     overflow-wrap: anywhere;
 }
 
+@media screen and (max-width: 720px) {
+    li {
+        width: 100%;
+    }
+
+    ol {
+        flex-flow: column nowrap;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 721px) {
+    .input {
+        max-width: 15ch;
+    }
+
+    ol {
+        flex-flow: row wrap;
+        padding: 0 10ch;
+        justify-content: center;
+    }
+
+    li {
+        margin: .5em;
+    }
+
+    li > .input-group {
+        flex: 1;
+    }
+}
+
 .input-group {
-    display:grid;
-    grid-auto-flow: column;
+    display: flex;
+    flow-flow: row nowrap;
+    background-color: lightblue;
 }
 
 ol {
     counter-reset: cntli;
     display: flex;
-    flex-flow: row wrap;
     background-color: green;
 }
 
 li {
-    display: grid;
-    grid-auto-flow: row;
-    width: fit-content;
+    display: flex;
+    flex-flow: column nowrap;
     background-color: blue;
     border: 1px solid yellow;
 }
