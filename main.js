@@ -6,11 +6,8 @@ function ready() {
 
     vars.inputList.forEach(elem => check(elem));
 
-    vars.inputList.forEach(elem => elem.addEventListener("input", function () {
-        check(this);
-    }));
-
     vars.html.addEventListener("click", clickHandler);
+    vars.html.addEventListener("input", inputHandler);
 }
 
 function clear(elem) {
@@ -51,6 +48,13 @@ function clickHandler(event) {
             break;
         default:
             break;
+    }
+}
+
+function inputHandler(event) {
+    elem = event.target;
+    if (elem.classList.contains("input")) {
+        check(elem);
     }
 }
 
