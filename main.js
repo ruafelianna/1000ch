@@ -2,10 +2,7 @@ let vars = {};
 
 function ready() {
     vars.inputList = document.querySelectorAll(".input");
-    vars.btnClearAll = document.querySelector(".btn-clear-all");
-    vars.btnShowAll = document.querySelector(".btn-show-all");
-    vars.btnClearList = document.querySelectorAll(".btn-clear");
-    vars.btnShowList = document.querySelectorAll(".btn-show");
+    vars.html = document.querySelector("html");
 
     check_all();
 
@@ -13,17 +10,7 @@ function ready() {
         check(this);
     }));
 
-    vars.btnClearAll.addEventListener("click", clear_all);
-
-    vars.btnShowAll.addEventListener("click", show_all);
-
-    vars.btnClearList.forEach(elem => elem.addEventListener("click", function () {
-        clear(this.parentElement.querySelector(".input"));
-    }));
-
-    vars.btnShowList.forEach(elem => elem.addEventListener("click", function () {
-        show(this.parentElement.querySelector(".input"));
-    }));
+    vars.html.addEventListener("click", click);
 }
 
 function clear_all() {
@@ -56,6 +43,26 @@ function check(elem) {
     else {
         elem.classList.remove("valid");
         elem.classList.add("invalid");
+    }
+}
+
+function click(event) {
+    elem = event.target;
+    switch (elem.dataset.action) {
+        case "show-all":
+            show_all();
+            break;
+        case "clear-all":
+            clear_all();
+            break;
+        case "show":
+            show(elem.parentElement.querySelector(".input"));
+            break;
+        case "clear":
+            clear(elem.parentElement.querySelector(".input"));
+            break;
+        default:
+            break;
     }
 }
 
