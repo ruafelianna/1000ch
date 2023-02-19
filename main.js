@@ -4,25 +4,13 @@ function ready() {
     vars.inputList = document.querySelectorAll(".input");
     vars.html = document.querySelector("html");
 
-    check_all();
+    vars.inputList.forEach(elem => check(elem));
 
     vars.inputList.forEach(elem => elem.addEventListener("input", function () {
         check(this);
     }));
 
-    vars.html.addEventListener("click", click);
-}
-
-function clear_all() {
-    vars.inputList.forEach(elem => clear(elem));
-}
-
-function show_all() {
-    vars.inputList.forEach(elem => show(elem));
-}
-
-function check_all() {
-    vars.inputList.forEach(elem => check(elem));
+    vars.html.addEventListener("click", clickHandler);
 }
 
 function clear(elem) {
@@ -46,14 +34,14 @@ function check(elem) {
     }
 }
 
-function click(event) {
+function clickHandler(event) {
     elem = event.target;
     switch (elem.dataset.action) {
         case "show-all":
-            show_all();
+            vars.inputList.forEach(elem => show(elem));
             break;
         case "clear-all":
-            clear_all();
+            vars.inputList.forEach(elem => clear(elem));
             break;
         case "show":
             show(elem.parentElement.querySelector(".input"));
