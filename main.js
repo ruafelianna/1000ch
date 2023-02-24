@@ -12,27 +12,40 @@ function ready() {
 
 function clear(elem) {
     elem.textContent = "";
-    check(elem);
+    if (elem.dataset.answer) {
+        mark_invalid(elem);
+    }
+    else {
+        mark_valid(elem);
+    }
 }
 
 function show(elem) {
     elem.textContent = elem.dataset.answer;
-    check(elem);
+    mark_valid(elem);
+}
+
+function mark_valid(elem) {
+    elem.classList.remove("invalid");
+    elem.classList.add("valid");
+}
+
+function mark_invalid(elem) {
+    elem.classList.remove("valid");
+    elem.classList.add("invalid");
 }
 
 function check(elem) {
     if (elem.textContent === elem.dataset.answer) {
-        elem.classList.remove("invalid");
-        elem.classList.add("valid");
+        mark_valid(elem);
     }
     else {
-        elem.classList.remove("valid");
-        elem.classList.add("invalid");
+        mark_invalid(elem);
     }
 }
 
 function clickHandler(event) {
-    elem = event.target;
+    let elem = event.target;
     switch (elem.dataset.action) {
         case "show-all":
             vars.inputList.forEach(elem => show(elem));
@@ -52,7 +65,7 @@ function clickHandler(event) {
 }
 
 function inputHandler(event) {
-    elem = event.target;
+    let elem = event.target;
     if (elem.classList.contains("input")) {
         check(elem);
     }
