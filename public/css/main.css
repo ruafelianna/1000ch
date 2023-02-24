@@ -1,20 +1,50 @@
+/*dark colour scheme*/
+
 :root {
-    --color-bg: black;
+    --color-bg: rgba(0, 0, 0, .5);
     --color-border: gray;
-    --color-hover: orange;
-    --color-invalid: pink;
+    --color-hover: cornflowerblue;
+    --color-invalid: coral;
     --color-placeholder: gray;
-    --color-text: white;
-    --color-valid: green;
+    --color-text: ivory;
+    --color-valid: forestgreen;
 }
+
+body {
+    background: var(--color-bg) url(../img/background-dark.png);
+}
+
+button:hover {
+    border-color: var(--color-hover);
+}
+
+/* light colour scheme*/
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-bg: rgba(255, 255, 255, .5);
+        --color-border: gray;
+        --color-hover: teal;
+        --color-invalid: palevioletred;
+        --color-placeholder: gray;
+        --color-text: black;
+        --color-valid: teal;
+    }
+
+    body {
+        background: var(--color-bg) url(../img/background-light.png);
+    }
+
+    button:hover {
+        background: var(--color-hover);
+    }
+}
+
+/* other */
 
 html, body {
     font-size: 16px;
     color: var(--color-text);
-}
-
-body {
-    background: black url(../img/background.png);
 }
 
 .valid {
@@ -35,10 +65,7 @@ button {
     color: var(--color-text);
     border: 1px solid var(--color-border);
     user-select: none;
-}
-
-button:hover {
-    border-color: var(--color-hover);
+    outline: none;
 }
 
 .input {
