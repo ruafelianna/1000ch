@@ -45,6 +45,7 @@ button:hover {
 html, body {
     font-size: 16px;
     color: var(--color-text);
+    font-family: serif;
 }
 
 .valid {
@@ -142,4 +143,9 @@ li:before {
 
 [contenteditable=true] br{
     display:none;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
 }
