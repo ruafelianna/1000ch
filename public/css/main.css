@@ -1,21 +1,44 @@
+:root {
+    --color-bg: black;
+    --color-border: gray;
+    --color-hover: orange;
+    --color-invalid: pink;
+    --color-placeholder: gray;
+    --color-text: white;
+    --color-valid: green;
+}
+
 html, body {
     font-size: 16px;
+    color: var(--color-text);
+}
+
+body {
+    background: black url(../img/background.png);
 }
 
 .valid {
-    background: lightgreen;
+    border-bottom: 1px solid var(--color-valid);
 }
 
 .invalid {
-    background: pink;
+    border-bottom: 1px solid var(--color-invalid);
 }
 
 .input, button {
-    padding: .5em;
+    padding: 1em;
 }
 
 button {
     width: fit-content;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: .3px solid var(--color-border);
+    user-select: none;
+}
+
+button:hover {
+    border-color: var(--color-hover);
 }
 
 .input {
@@ -58,31 +81,31 @@ button {
 .input-group {
     display: flex;
     flow-flow: row nowrap;
-    background-color: lightblue;
 }
 
 ol {
     counter-reset: cntli;
     display: flex;
-    background-color: green;
 }
 
 li {
     display: flex;
     flex-flow: column nowrap;
-    background-color: blue;
-    border: 1px solid yellow;
+    border: 1px solid var(--color-border);
+    padding: 1em;
+    background: var(--color-bg);
 }
 
 li:before {
     counter-increment: cntli;
     content: "#" counter(cntli);
     display: block;
+    padding-bottom: 1em;
 }
 
 [contenteditable=true]:empty:before {
     content: attr(placeholder);
-    color: gray;
+    color: var(--color-placeholder);
 }
 
 [contenteditable=true] br{
