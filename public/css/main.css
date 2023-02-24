@@ -33,7 +33,7 @@ button {
     width: fit-content;
     background: var(--color-bg);
     color: var(--color-text);
-    border: .3px solid var(--color-border);
+    border: 1px solid var(--color-border);
     user-select: none;
 }
 
@@ -81,6 +81,11 @@ button:hover {
 .input-group {
     display: flex;
     flow-flow: row nowrap;
+    margin: 2px 0;
+}
+
+.input-group > button {
+    margin: 0 2px;
 }
 
 ol {
