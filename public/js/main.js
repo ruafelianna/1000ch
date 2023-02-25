@@ -3,11 +3,13 @@ let vars = {};
 function ready() {
     vars.inputList = document.querySelectorAll(".input");
     vars.html = document.querySelector("html");
+    vars.btnTop = document.querySelector(".btn-top");
 
     vars.inputList.forEach(elem => check(elem));
 
     vars.html.addEventListener("click", clickHandler);
     vars.html.addEventListener("input", inputHandler);
+    window.addEventListener("scroll", scrollHandler);
 }
 
 function clear(elem) {
@@ -59,6 +61,9 @@ function clickHandler(event) {
         case "clear":
             clear(elem.parentElement.querySelector(".input"));
             break;
+        case "top":
+            document.documentElement.scrollTop = 0;
+            break;
         default:
             break;
     }
@@ -68,6 +73,15 @@ function inputHandler(event) {
     let elem = event.target;
     if (elem.classList.contains("input")) {
         check(elem);
+    }
+}
+
+function scrollHandler(event) {
+    if (document.documentElement.scrollTop > 200) {
+        vars.btnTop.style.display = "flex";
+    }
+    else {
+        vars.btnTop.style.display = "none";
     }
 }
 
