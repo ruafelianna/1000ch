@@ -185,3 +185,13 @@ li:before {
     background: var(--color-bg);
     user-select: none;
 }
+
+@font-face {
+    font-family: "BiFengShouXieTi";
+    src: url(../fonts/BiFengShouXieTi/BiFengShouXieTi.ttf) format("truetype");
+}
+
+header {
+    font-family: "BiFengShouXieTi", serif;
+    font-size: 4em;
+}
